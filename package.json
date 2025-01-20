@@ -1,0 +1,21 @@
+{
+  "name": "nginx-reverse-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc -b && node dist/index.js --config ./config.yaml",
+    "dev": "tsc-watch --onSuccess \"npm start\""
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.10.7",
+    "commander": "^13.0.0",
+    "tsc-watch": "^6.2.1",
+    "yaml": "^2.7.0",
+    "zod": "^3.24.1"
+  }
+}

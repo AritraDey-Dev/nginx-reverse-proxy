@@ -1,0 +1,21 @@
+servers:
+  - listen: "8080"
+    workers: 4
+    upstreams:
+      - id: "upstream-1"
+        url: "http://localhost:8001"
+      - id: "upstream-2"
+        url: "http://localhost:8002"
+    headers:
+      - key: "X-Custom-Header"
+        value: "$remote_addr"
+      - key: "Authorization"
+        value: "Bearer token"
+    rules:
+      - path: "/"
+        upstreams:
+          - "upstream-1"
+          - "upstream-2"
+      - path: "/api"
+        upstreams:
+          - "upstream-2"
